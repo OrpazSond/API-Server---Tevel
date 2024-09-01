@@ -33,12 +33,6 @@ class DatabaseManager:
             cursor.execute(f"INSERT INTO {table_name} ({columns}) VALUES ({values})")
             conn.commit()
 
-    def fetch_all(self, table_name):
-        with self.get_connection() as conn:
-            cursor = conn.cursor()
-            cursor.execute(f"SELECT * FROM {table_name}")
-            return cursor.fetchall()
-
 class APIService:
     def __init__(self, app, db_manager):
         self.app = app
